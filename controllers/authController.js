@@ -3,13 +3,13 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const handleLogin = async (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password)
+  const { matricNo, password } = req.body;
+  if (!matricNo || !password)
     return res
       .status(400)
       .json({ message: 'Username and password are required.' });
 
-  const foundUser = await User.findOne({ username: username }).exec();
+  const foundUser = await User.findOne({ matricNo: matricNo }).exec();
   if (!foundUser) {
     return res.status(400).json({
       message: 'User not found',
@@ -22,14 +22,14 @@ const handleLogin = async (req, res) => {
     const accessToken = jwt.sign(
       {
         UserInfo: {
-          username: foundUser.username,
+          username: foundUser.fullName,
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: '100000s' }
     );
     const refreshToken = jwt.sign(
-      { username: foundUser.username },
+      { username: foundUser.fullName },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: '1d' }
     );
@@ -46,9 +46,34 @@ const handleLogin = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
     });
 
+    const data = {
+      matricNo: foundUser.matricNo,
+      fullName: foundUser.fullName,
+      department: foundUser.department,
+      email: foundUser.email,
+      gender: foundUser.gender,
+      session: foundUser.session,
+      programme: foundUser.programme,
+      faculty: foundUser.faculty,
+      stateOfOrigin: foundUser.stateOfOrigin,
+      lga: foundUser.lga,
+      address: foundUser.address,
+      phoneNumber: foundUser.phoneNumber,
+      dob: foundUser.dob,
+      level: foundUser.level,
+      religion: foundUser.religion,
+      nxtFullName: foundUser.nxtFullName,
+      nxtEmail: foundUser.nxtEmail,
+      nxtPhoneNo: foundUser.nxtPhoneNo,
+      nxtRelationship: foundUser.nxtRelationship,
+    };
     res.json({
-      fullName: foundUser.username,
-      accessToken,
+      token: {
+        access_Token: accessToken,
+        expiryTime: new Date().toISOString(),
+        refresh_Token: refreshToken,
+      },
+      data: data,
     });
   } else {
     res.status(400).json({
