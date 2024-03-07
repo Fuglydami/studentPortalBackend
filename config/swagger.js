@@ -6,7 +6,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'REST API Docs',
+      title: 'Student Portal API',
       version,
     },
     // components: {
@@ -24,7 +24,7 @@ const options = {
     //   },
     // ],
   },
-  apis: ['./routes/auth.js', './model/*.js'],
+  apis: ['./routes/*.js', './model/*.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

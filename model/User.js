@@ -16,18 +16,15 @@ const Schema = mongoose.Schema;
  *          default: Jane Doe
  *        password:
  *          type: string
- *          default: pass1234
+ *          default: pass123
  *    LoginUserResponse:
  *      type: object
  *      properties:
- *        username:
+ *        fullName:
  *          type: string
- *        _id:
+ *        token:
  *          type: string
- *        createdAt:
- *          type: string
- *        updatedAt:
- *          type: string
+
  */
 
 const userSchema = new Schema({

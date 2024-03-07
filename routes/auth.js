@@ -4,7 +4,7 @@ const authController = require('../controllers/authController');
 
 /**
  * @openapi
- * '/':
+ * '/auth':
  *  post:
  *     tags:
  *     - Auth
