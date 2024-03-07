@@ -10,13 +10,13 @@ const handleRefreshToken = async (req, res) => {
   if (!foundUser) return res.sendStatus(403); //Forbidden
   // evaluate jwt
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-    if (err || foundUser.username !== decoded.username)
+    if (err || foundUser.matricNo !== decoded.matricNo)
       return res.sendStatus(403);
 
     const accessToken = jwt.sign(
       {
         UserInfo: {
-          username: decoded.username,
+          username: decoded.matricNo,
         },
       },
       process.env.ACCESS_TOKEN_SECRET,

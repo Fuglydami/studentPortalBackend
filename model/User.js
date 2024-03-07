@@ -5,6 +5,11 @@ const Schema = mongoose.Schema;
  * @openapi
  * components:
  *  schemas:
+ *    LogoutUserResponse:
+ *      type: object
+ *      properties:
+ *        message:
+ *          type: string
  *    LoginUserInput:
  *      type: object
  *      required:
