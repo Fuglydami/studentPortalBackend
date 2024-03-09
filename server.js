@@ -49,7 +49,6 @@ app.use(
 );
 app.use('/authentication/logout', require('./routes/authentication/logout'));
 app.use('/administration/courses', require('./routes/administration/courses'));
-
 app.use(verifyJWT);
 
 app.all('*', (req, res) => {

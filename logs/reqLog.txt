@@ -420,3 +420,12 @@
 20240309	13:31:33	e3c36aa4-5006-4aa0-ad37-6c1ed66ddbcf	GET	undefined	/administration/courses/400L-B.Nsc
 20240309	14:08:42	809b5557-6dfb-4ab3-b604-7135a424d573	GET	undefined	/administration/courses
 20240309	14:09:18	59a8cf88-0a19-426a-a356-0b3472494d37	GET	undefined	/administration/courses/200
+20240309	14:17:25	c2f60d98-4850-4c15-9647-f14c1f955a8d	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:17:26	0d72f25d-cfab-4ec1-8315-24062550be7f	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:18:10	89a22446-4c80-4787-92db-57fa173437a3	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:18:58	6585ec58-ce80-4ace-900d-70fd343b4fe3	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:19:19	67ddbb2f-2af0-4096-86af-a16f06252fbb	POST	undefined	/authentication/login
+20240309	14:19:27	42823054-8155-4884-81a0-2b828c7148bb	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:19:29	29e0c12b-557d-40bf-9f36-0293726ea9ef	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:20:04	326a8a37-d86b-4aa4-ad3f-5b2411a2a3a3	GET	undefined	/administration/courses/800L-B.Nsc
+20240309	14:20:10	a593c0df-4ce6-460f-9bdc-e3fce6f3c27c	GET	undefined	/administration/courses/500L-B.Nsc

@@ -24,7 +24,7 @@ const getCoursesByLevel = async (req, res) => {
 
   const courses = await Courses.find({ level: param }).exec();
 
-  if (!courses) {
+  if (!courses || courses.length === 0) {
     return res.status(404).json({ message: `Courses not found` });
   }
   const courseData = courses.map((data) => ({
