@@ -1,0 +1,122 @@
+[
+  {
+    "id": 7,
+    "courseCode": "CSC  101",
+    "courseTitle": "Computer Programming I",
+    "level": 100
+  },
+  {
+    "id": 8,
+    "courseCode": "CSC  105",
+    "courseTitle": "Operating Systems I",
+    "level": 100
+  },
+  {
+    "id": 9,
+    "courseCode": "GST  125",
+    "courseTitle": "Contemporary Health Issues",
+    "level": 100
+  },
+  {
+    "id": 10,
+    "courseCode": "GST  111",
+    "courseTitle": "Environment & Sustainable Development",
+    "level": 100
+  },
+  {
+    "id": 11,
+    "courseCode": "GST  223",
+    "courseTitle": "Introduction to Entrepreneurship",
+    "level": 200
+  },
+  {
+    "id": 12,
+    "courseCode": "MTH 201",
+    "courseTitle": "Mathematical Methods",
+    "level": 200
+  },
+  {
+    "id": 13,
+    "courseCode": "GST 211",
+    "courseTitle": "Environment & Sustainable Development",
+    "level": 200
+  },
+  {
+    "id": 14,
+    "courseCode": "GST  222",
+    "courseTitle": "Introduction to Entrepreneurship",
+    "level": 200
+  },
+  {
+    "id": 15,
+    "courseCode": "CSC 305",
+    "courseTitle": "Operating Systems II",
+    "level": 300
+  },
+  {
+    "id": 16,
+    "courseCode": "CSC 315",
+    "courseTitle": "Computer Architecture and Organization II",
+    "level": 300
+  },
+  {
+    "id": 17,
+    "courseCode": "CSC 321",
+    "courseTitle": "Systems Analysis and Design",
+    "level": 300
+  },
+  {
+    "id": 18,
+    "courseCode": "CSC 333",
+    "courseTitle": "Computational Science & Numerical Methods",
+    "level": 300
+  },
+  {
+    "id": 19,
+    "courseCode": "CSC 421",
+    "courseTitle": "Net-Centric Computing",
+    "level": 400
+  },
+  {
+    "id": 20,
+    "courseCode": "CSC 423",
+    "courseTitle": "Computer Networks/Communications",
+    "level": 400
+  },
+  {
+    "id": 21,
+    "courseCode": "CSC 441",
+    "courseTitle": "Human Computer Interface",
+    "level": 400
+  },
+  {
+    "id": 22,
+    "courseCode": "CSC 411  ",
+    "courseTitle": "Artificial Intelligence",
+    "level": 400
+  },
+  {
+    "id": 23,
+    "courseCode": "NSC 515",
+    "courseTitle": "OSCE  IX",
+    "level": 500
+  },
+  {
+    "id": 24,
+    "courseCode": "NSC 502",
+    "courseTitle": "Advanced Mental Health",
+    "level": 500
+  },
+  {
+    "id": 25,
+    "courseCode": "NSC 506",
+    "courseTitle": "NURSING Enterprenurship",
+    "level": 500
+  },
+  {
+    "id": 26,
+    "courseCode": "NSC 504",
+    "courseTitle": "Advanced Community Health Nursing ",
+    "level": 500
+  }
+]

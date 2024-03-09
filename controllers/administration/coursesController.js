@@ -1,34 +1,43 @@
-const fetch = require('node-fetch');
 const Courses = require('../../model/Courses');
+const data = require('../../routes/administration/courses.json');
 
 const getAllCourses = async (req, res) => {
-  try {
-    const response = await fetch(process.env.ALL_COURSES_URL);
-    const { data } = await response.json();
+  await Courses.deleteMany({}); // Clear existing data
+  await Courses.insertMany(data); //  insert the fetched data to db
 
-    if (!data || !Array.isArray(data)) {
-      return res.status(404).json({ message: 'Courses not found.' });
-    }
+  const courses = await Courses.find();
+  const courseData = courses.map((data) => ({
+    id: data.id,
+    courseCode: data.courseCode,
+    courseTitle: data.courseTitle,
+    level: data.level,
+  }));
 
-    await Courses.deleteMany({}); // Clear existing data
-    await Courses.insertMany(data); //  insert the fetched data to db
+  res.status(200).json({
+    message: 'Successfully fetched courses!',
+    data: courseData,
+  });
+};
+const getCoursesByLevel = async (req, res) => {
+  const param = req?.params?.id.substring(0, 3);
+  if (!param) return res.status(400).json({ message: 'Year is required.' });
 
-    const courses = await Courses.find();
-    const courseData = courses.map((data) => ({
-      id: data.id,
-      courseCode: data.courseCode,
-      courseTitle: data.courseTitle,
-    }));
+  const courses = await Courses.find({ level: param }).exec();
 
-    res.status(200).json({
-      message: 'Successfully fetched courses!',
-      data: courseData,
-    });
-  } catch (error) {
-    return res
-      .status(500)
-      .json({ message: 'An error occurred while fetching courses.' });
+  if (!courses) {
+    return res.status(404).json({ message: `Courses not found` });
   }
+  const courseData = courses.map((data) => ({
+    id: data.id,
+    courseCode: data.courseCode,
+    courseTitle: data.courseTitle,
+    level: data.level,
+  }));
+
+  res.json({
+    message: `Successfully fetched courses for ${param} level!`,
+    data: courseData,
+  });
 };
 
 // const createNewEmployee = async (req, res) => {
@@ -86,6 +95,7 @@ const getAllCourses = async (req, res) => {
 
 module.exports = {
   getAllCourses,
+  getCoursesByLevel,
   // createNewEmployee,
   // updateEmployee,
   // deleteEmployee,

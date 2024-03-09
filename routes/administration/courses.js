@@ -25,8 +25,34 @@ const coursesController = require('../../controllers/administration/coursesContr
  */
 
 router.route('/').get(coursesController.getAllCourses);
-
-// router.route('/:id')
-//     .get(verifyRoles(ROLES_LIST.Admin), usersController.getUser);
+/**
+ * @openapi
+ * '/administration/courses/{level}':
+ *  get:
+ *     tags:
+ *     - Administration
+ *     summary: Get all courses for each level
+ *     parameters:
+ *       - name: level
+ *         in: path
+ *         description: Return the student Level
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *      200:
+ *        description: Success
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/CoursesResponse'
+ *      409:
+ *        description: Conflict
+ *      400:
+ *        description: Bad request
+ */
+router.route('/:id').get(coursesController.getCoursesByLevel);
 
 module.exports = router;

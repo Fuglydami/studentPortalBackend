@@ -14,6 +14,8 @@ const Schema = mongoose.Schema;
  *          type: string
  *        courseTitle:
  *          type: string
+ *        level:
+ *          type: number
  *      '400':
  *        description: courses not found
  */
@@ -29,6 +31,10 @@ const coursesSchema = new Schema({
   },
   courseTitle: {
     type: String,
+    required: true,
+  },
+  level: {
+    type: Number,
     required: true,
   },
 });
