@@ -48,8 +48,8 @@ app.use(
   require('./routes/authentication/refresh')
 );
 app.use('/authentication/logout', require('./routes/authentication/logout'));
-app.use('/administration/courses', require('./routes/administration/courses'));
 app.use(verifyJWT);
+app.use('/administration/courses', require('./routes/administration/courses'));
 
 app.all('*', (req, res) => {
   res.status(404);

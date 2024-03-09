@@ -429,3 +429,7 @@
 20240309	14:19:29	29e0c12b-557d-40bf-9f36-0293726ea9ef	GET	undefined	/administration/courses/800L-B.Nsc
 20240309	14:20:04	326a8a37-d86b-4aa4-ad3f-5b2411a2a3a3	GET	undefined	/administration/courses/800L-B.Nsc
 20240309	14:20:10	a593c0df-4ce6-460f-9bdc-e3fce6f3c27c	GET	undefined	/administration/courses/500L-B.Nsc
+20240309	14:23:55	0fdf1d08-9464-4f90-90e4-43a2a7edf9b4	POST	undefined	/authentication/login
+20240309	14:24:21	c284547e-6f16-4925-b59f-9c2c15aa9ab5	GET	undefined	/administration/courses/500L-B.Nsc
+20240309	14:24:33	99452ceb-5132-4342-8ea7-d8455b9d44c6	GET	undefined	/administration/courses/500L-B.Nsc
+20240309	14:24:38	9ab149a2-f5f6-464c-b0b2-3a0177ed9dc4	GET	undefined	/administration/courses/500L-B.Nsc
