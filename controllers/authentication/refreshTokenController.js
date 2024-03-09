@@ -1,4 +1,4 @@
-const User = require('../model/User');
+const User = require('../../model/User');
 const jwt = require('jsonwebtoken');
 
 const handleRefreshToken = async (req, res) => {
@@ -10,13 +10,14 @@ const handleRefreshToken = async (req, res) => {
   if (!foundUser) return res.sendStatus(403); //Forbidden
   // evaluate jwt
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-    if (err || foundUser.matricNo !== decoded.matricNo)
+    console.log(decoded, 'foundedddddUser');
+    if (err || foundUser.fullName !== decoded.username)
       return res.sendStatus(403);
 
     const accessToken = jwt.sign(
       {
         UserInfo: {
-          username: decoded.matricNo,
+          username: decoded.username,
         },
       },
       process.env.ACCESS_TOKEN_SECRET,

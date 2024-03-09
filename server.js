@@ -38,10 +38,17 @@ app.use(cookieParser());
 
 // routes
 // app.use('/', require('./routes/root'));
-app.use('/register', require('./routes/register'));
-app.use('/auth', require('./routes/auth'));
-app.use('/refresh', require('./routes/refresh'));
-app.use('/logout', require('./routes/logout'));
+app.use(
+  '/authentication/register',
+  require('./routes/authentication/register')
+);
+app.use('/authentication/login', require('./routes/authentication/login'));
+app.use(
+  '/authentication/refreshToken',
+  require('./routes/authentication/refresh')
+);
+app.use('/authentication/logout', require('./routes/authentication/logout'));
+app.use('/administration/courses', require('./routes/administration/courses'));
 
 app.use(verifyJWT);
 

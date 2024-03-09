@@ -1,33 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController');
+const registerController = require('../../controllers/authentication/registerController');
 
 /**
  * @openapi
- * '/auth':
+ * '/authentication/register':
  *  post:
  *     tags:
  *     - Auth
- *     summary: Login
+ *     summary: Register a student
  *     requestBody:
  *      required: true
  *      content:
  *        application/json:
  *           schema:
- *              $ref: '#/components/schemas/LoginUserInput'
+ *              $ref: '#/components/schemas/RegisterUserInput'
  *     responses:
  *      200:
  *        description: Success
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/LoginUserResponse'
+ *              $ref: '#/components/schemas/RegisterUserResponse'
  *      409:
  *        description: Conflict
  *      400:
  *        description: Bad request
  */
 
-router.post('/', authController.handleLogin);
+router.post('/', registerController.handleNewUser);
 
 module.exports = router;

@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const logoutController = require('../controllers/logoutController');
+const logoutController = require('../../controllers/authentication/logoutController');
 
 /**
  * @openapi
- * /logout:
+ * /authentication/logout:
  *  get:
  *     tags:
  *     - Auth

@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const refreshTokenController = require('../controllers/refreshTokenController');
+const refreshTokenController = require('../../controllers/authentication/refreshTokenController');
 
 /**
  * @openapi
- * /refresh:
+ * /authentication/refreshToken:
  *  get:
  *     tags:
  *     - Auth

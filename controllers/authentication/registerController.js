@@ -1,4 +1,4 @@
-const User = require('../model/User');
+const User = require('../../model/User');
 const bcrypt = require('bcrypt');
 
 const handleNewUser = async (req, res) => {
@@ -83,8 +83,6 @@ const handleNewUser = async (req, res) => {
       nxtRelationship,
       password: hashedPwd,
     });
-
-    console.log(result);
 
     res.status(200).json({ message: `Profile successfully created!` });
   } catch (err) {

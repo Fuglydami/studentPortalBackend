@@ -1,4 +1,4 @@
-const User = require('../model/User');
+const User = require('../../model/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -12,7 +12,7 @@ const handleLogin = async (req, res) => {
   const foundUser = await User.findOne({ matricNo: matricNo }).exec();
   if (!foundUser) {
     return res.status(400).json({
-      message: 'User not found',
+      message: `Invalid user's credentials`,
     }); //Unauthorized
   }
   // evaluate password
@@ -77,7 +77,7 @@ const handleLogin = async (req, res) => {
     });
   } else {
     res.status(400).json({
-      message: 'User not found',
+      message: `Invalid user's credentials`,
     });
   }
 };

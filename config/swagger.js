@@ -1,4 +1,5 @@
 const swaggerUi = require('swagger-ui-express');
+
 const { version } = require('../package.json');
 const swaggerJSDoc = require('swagger-jsdoc');
 
@@ -24,12 +25,15 @@ const options = {
     //   },
     // ],
   },
-  apis: ['./routes/*.js', './model/*.js'],
+  apis: [
+    './routes/authentication/*.js',
+    './routes/administration/*.js',
+    './model/*.js',
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
-
-module.exports = function swaggerDocs(app, port) {
+function swaggerDocs(app, port) {
   // Swagger page
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -39,4 +43,6 @@ module.exports = function swaggerDocs(app, port) {
     res.send(swaggerSpec);
   });
   console.log(`Docs available at http://localhost:${port}/docs`);
-};
+}
+
+module.exports = swaggerDocs;
