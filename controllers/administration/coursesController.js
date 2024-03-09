@@ -11,6 +11,7 @@ const getAllCourses = async (req, res) => {
     courseCode: data.courseCode,
     courseTitle: data.courseTitle,
     level: data.level,
+    unit: data.unit,
   }));
 
   res.status(200).json({
@@ -32,6 +33,7 @@ const getCoursesByLevel = async (req, res) => {
     courseCode: data.courseCode,
     courseTitle: data.courseTitle,
     level: data.level,
+    unit: data.unit,
   }));
 
   res.json({

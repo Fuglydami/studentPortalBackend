@@ -16,6 +16,8 @@ const Schema = mongoose.Schema;
  *          type: string
  *        level:
  *          type: number
+ *        unit:
+ *          type: string
  *      '400':
  *        description: courses not found
  */
@@ -35,6 +37,10 @@ const coursesSchema = new Schema({
   },
   level: {
     type: Number,
+    required: true,
+  },
+  unit: {
+    type: String,
     required: true,
   },
 });

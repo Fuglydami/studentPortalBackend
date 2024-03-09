@@ -26,7 +26,7 @@ const handleLogin = async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: '1000s' }
+      { expiresIn: '900s' }
     );
     const refreshToken = jwt.sign(
       { username: foundUser.fullName },
@@ -36,7 +36,6 @@ const handleLogin = async (req, res) => {
     // Saving refreshToken with current user
     foundUser.refreshToken = refreshToken;
     const result = await foundUser.save();
-    console.log(result);
 
     // Creates Secure Cookie with refresh token
     res.cookie('jwt', refreshToken, {
@@ -67,10 +66,14 @@ const handleLogin = async (req, res) => {
       nxtPhoneNo: foundUser.nxtPhoneNo,
       nxtRelationship: foundUser.nxtRelationship,
     };
+    const expiresInMinutes = 15;
+    const accessTokenExpiry = new Date(Date.now() + expiresInMinutes * 60000);
+    accessTokenExpiry.setHours(accessTokenExpiry.getHours() + 1); // Adjust for timezone difference
+    const accessTokenExpiryISO = accessTokenExpiry.toISOString();
     res.json({
       token: {
         access_Token: accessToken,
-        expiryTime: new Date().toISOString(),
+        expiryTime: accessTokenExpiryISO,
         refresh_Token: refreshToken,
       },
       data: data,
