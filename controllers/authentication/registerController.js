@@ -1,55 +1,38 @@
 const User = require('../../model/User');
 const bcrypt = require('bcrypt');
 
+const requiredFields = [
+  'matricNo',
+  'password',
+  'fullName',
+  'department',
+  'email',
+  'programme',
+  'gender',
+  'session',
+  'faculty',
+  'stateOfOrigin',
+  'lga',
+  'address',
+  'phoneNumber',
+  'dob',
+  'level',
+  'religion',
+  'nxtFullName',
+  'nxtEmail',
+  'nxtPhoneNo',
+  'nxtRelationship',
+];
 const handleNewUser = async (req, res) => {
-  let {
-    matricNo,
-    password,
-    fullName,
-    department,
-    email,
-    programme,
-    gender,
-    session,
-    faculty,
-    stateOfOrigin,
-    lga,
-    address,
-    phoneNumber,
-    dob,
-    level,
-    religion,
-    nxtFullName,
-    nxtEmail,
-    nxtPhoneNo,
-    nxtRelationship,
-  } = req.body;
-  if (
-    (!matricNo,
-    !password,
-    !fullName,
-    !department,
-    !email,
-    !programme,
-    !gender,
-    !session,
-    !faculty,
-    !stateOfOrigin,
-    !lga,
-    !address,
-    !phoneNumber,
-    !dob,
-    !level,
-    !religion,
-    !nxtFullName,
-    !nxtEmail,
-    !nxtPhoneNo,
-    !nxtRelationship)
-  )
-    return res.status(400).json({ message: 'All fields are required.' });
+  const missingFields = requiredFields.filter((field) => !req.body[field]);
+  if (missingFields.length > 0) {
+    return res
+      .status(400)
+      .json({ message: 'All fields are required.', missingFields });
+  }
 
   // check for duplicate usernames in the db
-  const duplicate = await User.findOne({ matricNo: matricNo }).exec();
+  const duplicate = await User.findOne({ matricNo: req.body.matricNo }).exec();
   if (duplicate)
     return res.status(400).json({
       message: 'This user already exist',
@@ -57,30 +40,11 @@ const handleNewUser = async (req, res) => {
 
   try {
     //encrypt the password
-    const hashedPwd = await bcrypt.hash(password, 10);
+    const hashedPwd = await bcrypt.hash(req.body.password, 10);
 
     //create and store the new user
     const result = await User.create({
-      matricNo,
-
-      fullName,
-      department,
-      email,
-      programme,
-      gender,
-      session,
-      faculty,
-      stateOfOrigin,
-      lga,
-      address,
-      phoneNumber,
-      dob,
-      level,
-      religion,
-      nxtFullName,
-      nxtEmail,
-      nxtPhoneNo,
-      nxtRelationship,
+      ...req.body,
       password: hashedPwd,
     });
 

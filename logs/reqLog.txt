@@ -433,3 +433,12 @@
 20240309	14:24:21	c284547e-6f16-4925-b59f-9c2c15aa9ab5	GET	undefined	/administration/courses/500L-B.Nsc
 20240309	14:24:33	99452ceb-5132-4342-8ea7-d8455b9d44c6	GET	undefined	/administration/courses/500L-B.Nsc
 20240309	14:24:38	9ab149a2-f5f6-464c-b0b2-3a0177ed9dc4	GET	undefined	/administration/courses/500L-B.Nsc
+20240309	14:40:28	286348b5-1a10-4854-93dc-6f3b2e6a8a0a	POST	undefined	/authentication/register
+20240309	14:40:50	3495136a-aaa0-4db9-b95e-41e4b08bfc4a	POST	undefined	/authentication/register
+20240309	14:41:11	e4d8834e-38d8-4d8f-a79b-17dd53da22f0	POST	undefined	/authentication/register
+20240309	14:43:15	5c3ba24b-cefc-440b-ae37-7353e6c13a30	POST	undefined	/authentication/register
+20240309	14:43:55	d5e127cb-7162-4145-98d4-31c581091889	POST	undefined	/authentication/register
+20240309	14:44:05	64767719-1377-441a-8e27-93cbd51cad86	POST	undefined	/authentication/register
+20240309	14:47:05	14ac7180-8d81-4561-8265-60b81994d113	POST	undefined	/authentication/register
+20240309	14:51:28	15228e64-e0f1-47e3-9e3d-97bbb3ae3d11	POST	undefined	/authentication/register
+20240309	14:52:07	4d3584bc-7a6e-4a01-b974-47975c214f43	POST	undefined	/authentication/register

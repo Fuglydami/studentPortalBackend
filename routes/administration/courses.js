@@ -54,5 +54,6 @@ router.route('/').get(coursesController.getAllCourses);
  *        description: Bad request
  */
 router.route('/:id').get(coursesController.getCoursesByLevel);
+router.route('/').get(coursesController.registerCourses);
 
 module.exports = router;

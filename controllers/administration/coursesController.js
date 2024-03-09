@@ -39,7 +39,9 @@ const getCoursesByLevel = async (req, res) => {
     data: courseData,
   });
 };
-
+const registerCourses = async (req, res) => {
+  console.log('register courses');
+};
 // const createNewEmployee = async (req, res) => {
 //     if (!req?.body?.firstname || !req?.body?.lastname) {
 //         return res.status(400).json({ 'message': 'First and last names are required' });
@@ -96,6 +98,7 @@ const getCoursesByLevel = async (req, res) => {
 module.exports = {
   getAllCourses,
   getCoursesByLevel,
+  registerCourses,
   // createNewEmployee,
   // updateEmployee,
   // deleteEmployee,
