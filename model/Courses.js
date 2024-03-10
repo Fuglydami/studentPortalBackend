@@ -9,22 +9,30 @@ const Schema = mongoose.Schema;
  *      type: object
  *      properties:
  *        id:
- *          type: string
+ *          type: number
+ *          default: ""
  *        courseCode:
  *          type: string
+ *          default: ""
  *        courseTitle:
  *          type: string
+ *          default: ""
  *        level:
  *          type: number
+ *          default: ""
  *        unit:
  *          type: string
- *      '400':
- *        description: courses not found
+ *          default: ""
+ *    StatusResponse:
+ *      type: object
+ *      properties:
+ *        message:
+ *          type: string
  */
 
 const coursesSchema = new Schema({
   id: {
-    type: String,
+    type: Number,
     required: true,
   },
   courseCode: {

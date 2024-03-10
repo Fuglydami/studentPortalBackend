@@ -1,4 +1,5 @@
 const Courses = require('../../model/Courses');
+const User = require('../../model/User');
 const data = require('../../routes/administration/courses.json');
 
 const getAllCourses = async (req, res) => {
@@ -41,9 +42,98 @@ const getCoursesByLevel = async (req, res) => {
     data: courseData,
   });
 };
+
 const registerCourses = async (req, res) => {
-  console.log('register courses');
+  try {
+    const matricNo = req.headers.matricno;
+
+    const user = await User.findOne({ matricNo });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    const coursesData = req.body;
+
+    if (
+      !Array.isArray(coursesData) ||
+      coursesData.length === 0 ||
+      !coursesData.some((course) =>
+        Object.values(course).every((value) => value !== '')
+      )
+    ) {
+      return res.status(400).json({ message: 'Courses data is required.' });
+    }
+
+    for (const courseData of coursesData) {
+      const courseId = courseData.id;
+
+      if (!courseId) {
+        return res.status(400).json({ message: 'Course ID is missing.' });
+      }
+
+      if (user.courses.includes(courseId)) {
+        return res.status(400).json({ message: `Courses already registered ` });
+      }
+
+      user.courses.push(courseId);
+    }
+
+    await user.save();
+
+    res.status(200).json({ message: 'Courses registered successfully.' });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'An error occurred while registering the courses.' });
+  }
 };
+
+// const registerCourses = async (req, res) => {
+//   // try {
+//   // Extract matricNo from the request header
+//   const matricNo = req.headers.matricno;
+
+//   // Find the user by matricNo
+//   const user = await User.findOne({ matricNo });
+//   if (!user) {
+//     return res.status(404).json({ message: 'User not found.' });
+//   }
+
+//   // Validate request body
+
+//   const courses = req.body;
+
+//   if (!Array.isArray(courses) || courses.length === 0) {
+//     return res.status(400).json({ message: 'Courses data is required.' });
+//   }
+
+//   // Register each course for the user
+//   for (const _id of courses) {
+//     const course = await Courses.findById(_id);
+
+//     if (!course) {
+//       return res.status(400).json({ message: `Course ${_id} not found.` });
+//     }
+
+//     if (user.courses.includes(_id)) {
+//       return res
+//         .status(400)
+//         .json({ message: `User already registered for course ${_id}.` });
+//     }
+
+//     user.courses.push(_id);
+//   }
+
+//   // Save the user object after registering all courses
+//   await user.save();
+
+//   res.status(200).json({ message: 'Courses registered successfully.' });
+//   // } catch (error) {
+//   //   res
+//   //     .status(500)
+//   //     .json({ message: 'An error occurred while registering the courses.' });
+//   // }
+// };
 // const createNewEmployee = async (req, res) => {
 //     if (!req?.body?.firstname || !req?.body?.lastname) {
 //         return res.status(400).json({ 'message': 'First and last names are required' });

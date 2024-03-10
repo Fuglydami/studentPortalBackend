@@ -202,6 +202,11 @@ const userSchema = new Schema({
     required: false,
   },
   refreshToken: String,
+  courses: [
+    {
+      type: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);
