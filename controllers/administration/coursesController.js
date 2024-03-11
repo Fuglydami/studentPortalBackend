@@ -62,7 +62,7 @@ const getAllCourses = async (req, res) => {
 const getCoursesByLevel = async (req, res) => {
   const param = req?.params?.id.substring(0, 3);
   if (!param) return res.status(400).json({ message: 'Year is required.' });
-  console.log(req.headers, 'body');
+
   try {
     const user = await User.findOne({ matricNo: req.headers.matricno }).exec();
     if (!user) return res.status(404).json({ message: 'User not found.' });
@@ -75,7 +75,7 @@ const getCoursesByLevel = async (req, res) => {
     }
 
     const remainingCourses = courses.filter(
-      (course) => !registeredCourses.includes(course.courseCode)
+      (course) => !registeredCourses.includes(course.id)
     );
 
     if (remainingCourses.length === 0) {

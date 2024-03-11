@@ -577,3 +577,9 @@
 20240311	23:08:17	24f20529-76af-4adb-bfb5-fa244d3756a5	GET	undefined	/administration/courses/500L-B.Nsc
 20240311	23:09:01	977fb5be-65a8-4300-b02b-bedc228cc582	GET	undefined	/administration/courses/500
 20240311	23:09:18	19d17897-c90e-46d9-9ed8-023d8dd0a950	POST	http://localhost:3500	/authentication/login
+20240311	23:15:47	ab4de99a-988b-4323-9ab8-9a1c37e89f07	POST	undefined	/authentication/login
+20240311	23:16:01	286aef8b-959b-4438-b6b0-bfd5bbdb218a	GET	undefined	/administration/courses/500L-B.Nsc
+20240311	23:17:24	7b3f136a-4fee-47e3-916c-cc7bfb987489	GET	undefined	/administration/courses/500L-B.Nsc
+20240311	23:17:46	6391756a-ee84-4e9e-8bb6-b82964b58fab	POST	undefined	/authentication/login
+20240311	23:17:57	4cfdd9e3-2186-4ab1-abb4-589fee005ce2	GET	undefined	/administration/courses/500L-B.Nsc
+20240311	23:18:41	fbe37aab-eda4-45a5-a33f-1b7e2d96da86	GET	undefined	/administration/courses/500L-B.Nsc
