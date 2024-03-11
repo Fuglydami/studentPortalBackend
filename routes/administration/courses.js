@@ -35,7 +35,9 @@ router.route('/').get(coursesController.getAllCourses);
  *     parameters:
  *       - name: level
  *         in: path
- *         description: Return the student Level
+ *         required: true
+ *       - name: matricNo
+ *         in: header
  *         required: true
  *         schema:
  *           type: string

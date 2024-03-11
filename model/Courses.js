@@ -5,6 +5,14 @@ const Schema = mongoose.Schema;
  * @openapi
  * components:
  *  schemas:
+ *    GetCourseInput:
+ *      type: object
+ *      required:
+ *        - matricNo
+ *      properties:
+ *        matricNo:
+ *          type: string
+ *          default: ""
  *    CoursesResponse:
  *      type: object
  *      properties:
@@ -28,6 +36,8 @@ const Schema = mongoose.Schema;
  *      properties:
  *        message:
  *          type: string
+ *        data:
+ *          type: array
  */
 
 const coursesSchema = new Schema({

@@ -20,42 +20,87 @@ const getAllCourses = async (req, res) => {
     data: courseData,
   });
 };
+// const getCoursesByLevel = async (req, res) => {
+//   const param = req?.params?.id.substring(0, 3);
+//   if (!param) return res.status(400).json({ message: 'Year is required.' });
+
+//   const courses = await Courses.find({ level: param }).exec();
+//   const user = await User.findOne({ matricNo: req.user.matricNo }).exec();
+//     if (!user) return res.status(404).json({ message: 'User not found.' });
+//     const registeredCourses = user.courses || [];
+
+//   if (!courses || courses.length === 0) {
+//     return res.status(404).json({ message: `Courses not found` });
+//   }
+
+//   const remainingCourses = courses.filter(
+//     (course) => !registeredCourses[0]?.courses.includes(course.id)
+//   );
+
+//   if (remainingCourses.length === 0) {
+//     return res
+//       .status(200)
+//       .json({
+//         message: `You have no course left to register`,
+//         data: remainingCourses,
+//       });
+//   }
+//   // console.log(remainingCourses, 'remainingCourse');
+//   const courseData = remainingCourses.map((data) => ({
+//     id: data.id,
+//     courseCode: data.courseCode,
+//     courseTitle: data.courseTitle,
+//     level: data.level,
+//     unit: data.unit,
+//   }));
+
+//   res.json({
+//     message: `Successfully fetched courses for ${param} level!`,
+//     data: courseData,
+//   });
+// };
 const getCoursesByLevel = async (req, res) => {
   const param = req?.params?.id.substring(0, 3);
   if (!param) return res.status(400).json({ message: 'Year is required.' });
-  // const registeredCourses = User.courses || [];
-  const courses = await Courses.find({ level: param }).exec();
-  const registeredCourses = await User.find();
+  console.log(req.headers, 'body');
+  try {
+    const user = await User.findOne({ matricNo: req.headers.matricno }).exec();
+    if (!user) return res.status(404).json({ message: 'User not found.' });
 
-  if (!courses || courses.length === 0) {
-    return res.status(404).json({ message: `Courses not found` });
-  }
+    const registeredCourses = user.courses || [];
 
-  const remainingCourses = courses.filter(
-    (course) => !registeredCourses[0]?.courses.includes(course.id)
-  );
+    const courses = await Courses.find({ level: param }).exec();
+    if (!courses || courses.length === 0) {
+      return res.status(404).json({ message: `Courses not found` });
+    }
 
-  if (remainingCourses.length === 0) {
-    return res
-      .status(200)
-      .json({
+    const remainingCourses = courses.filter(
+      (course) => !registeredCourses.includes(course.courseCode)
+    );
+
+    if (remainingCourses.length === 0) {
+      return res.status(200).json({
         message: `You have no course left to register`,
         data: remainingCourses,
       });
-  }
-  // console.log(remainingCourses, 'remainingCourse');
-  const courseData = remainingCourses.map((data) => ({
-    id: data.id,
-    courseCode: data.courseCode,
-    courseTitle: data.courseTitle,
-    level: data.level,
-    unit: data.unit,
-  }));
+    }
 
-  res.json({
-    message: `Successfully fetched courses for ${param} level!`,
-    data: courseData,
-  });
+    const courseData = remainingCourses.map((data) => ({
+      id: data.id,
+      courseCode: data.courseCode,
+      courseTitle: data.courseTitle,
+      level: data.level,
+      unit: data.unit,
+    }));
+
+    res.json({
+      message: `Successfully fetched courses for ${param} level!`,
+      data: courseData,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 };
 
 const registerCourses = async (req, res) => {

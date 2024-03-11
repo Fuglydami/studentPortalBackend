@@ -10,20 +10,20 @@ const options = {
       title: 'Student Portal API',
       version,
     },
-    // components: {
-    //   securitySchemes: {
-    //     bearerAuth: {
-    //       type: 'http',
-    //       scheme: 'bearer',
-    //       bearerFormat: 'JWT',
-    //     },
-    //   },
-    // },
-    // security: [
-    //   {
-    //     bearerAuth: [],
-    //   },
-    // ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
   apis: [
     './routes/authentication/*.js',
