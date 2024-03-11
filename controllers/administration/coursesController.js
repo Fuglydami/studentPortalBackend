@@ -34,6 +34,12 @@ const getCoursesByLevel = async (req, res) => {
   const remainingCourses = courses.filter(
     (course) => !registeredCourses[0]?.courses.includes(course.id)
   );
+
+  if (remainingCourses.length === 0) {
+    return res
+      .status(200)
+      .json({ message: `You have no course left to register` });
+  }
   // console.log(remainingCourses, 'remainingCourse');
   const courseData = remainingCourses.map((data) => ({
     id: data.id,
