@@ -38,7 +38,10 @@ const getCoursesByLevel = async (req, res) => {
   if (remainingCourses.length === 0) {
     return res
       .status(200)
-      .json({ message: `You have no course left to register` });
+      .json({
+        message: `You have no course left to register`,
+        data: remainingCourses,
+      });
   }
   // console.log(remainingCourses, 'remainingCourse');
   const courseData = remainingCourses.map((data) => ({
