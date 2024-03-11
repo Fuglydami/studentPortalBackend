@@ -58,7 +58,7 @@ const Schema = mongoose.Schema;
  *          default: 1720008
  *        password:
  *          type: string
- *          default: pass123
+ *          default: ""
  *        fullName:
  *          type: string
  *          default: Jane Doe

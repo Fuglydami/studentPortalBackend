@@ -23,13 +23,19 @@ const getAllCourses = async (req, res) => {
 const getCoursesByLevel = async (req, res) => {
   const param = req?.params?.id.substring(0, 3);
   if (!param) return res.status(400).json({ message: 'Year is required.' });
-
+  // const registeredCourses = User.courses || [];
   const courses = await Courses.find({ level: param }).exec();
+  const registeredCourses = await User.find();
 
   if (!courses || courses.length === 0) {
     return res.status(404).json({ message: `Courses not found` });
   }
-  const courseData = courses.map((data) => ({
+
+  const remainingCourses = courses.filter(
+    (course) => !registeredCourses[0]?.courses.includes(course.id)
+  );
+  // console.log(remainingCourses, 'remainingCourse');
+  const courseData = remainingCourses.map((data) => ({
     id: data.id,
     courseCode: data.courseCode,
     courseTitle: data.courseTitle,
