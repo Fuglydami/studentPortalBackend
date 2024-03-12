@@ -50,6 +50,10 @@ app.use(
 app.use('/authentication/logout', require('./routes/authentication/logout'));
 app.use(verifyJWT);
 app.use('/administration/courses', require('./routes/administration/courses'));
+app.use(
+  '/administration/get-registered-courses',
+  require('./routes/administration/getRegisteredCourses')
+);
 
 app.all('*', (req, res) => {
   res.status(404);
