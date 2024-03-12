@@ -8,7 +8,7 @@ const coursesController = require('../../controllers/administration/deleteRegist
  *  delete:
  *     tags:
  *     - Administration
- *     summary: Get list of register courses
+ *     summary: Delete a registered course
  *     parameters:
  *       - name: matricNo
  *         in: header
@@ -18,9 +18,7 @@ const coursesController = require('../../controllers/administration/deleteRegist
  *        content:
  *          application/json:
  *            schema:
- *              type: array
- *              items:
- *                $ref: '#/components/schemas/LogoutUserResponse'
+ *              $ref: '#/components/schemas/LogoutUserResponse'
  *      409:
  *        description: Conflict
  *      400:
