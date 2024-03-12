@@ -114,8 +114,4 @@ module.exports = {
   getAllCourses,
   getCoursesByLevel,
   registerCourses,
-  getRegisteredCourses,
-  // updateEmployee,
-  // deleteEmployee,
-  // getEmployee
 };
