@@ -204,7 +204,8 @@ const userSchema = new Schema({
   refreshToken: String,
   courses: [
     {
-      type: String,
+      type: Number,
+      required: true,
     },
   ],
 });

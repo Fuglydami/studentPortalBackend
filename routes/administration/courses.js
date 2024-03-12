@@ -90,5 +90,8 @@ router.route('/:id').get(coursesController.getCoursesByLevel);
  *              $ref: '#/components/schemas/StatusResponse'
  */
 router.route('/').post(coursesController.registerCourses);
+router
+  .route('/get-registered-courses')
+  .get(coursesController.getRegisteredCourses);
 
 module.exports = router;
