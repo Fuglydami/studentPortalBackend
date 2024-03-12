@@ -12,6 +12,12 @@ const getRegisteredCourses = async (req, res) => {
       id: { $in: registeredCourseIds },
     }).exec();
 
+    if (registeredCourses.length === 0) {
+      res.status(200).json({
+        data: [],
+        message: 'No course(s) found',
+      });
+    }
     res.status(200).json({
       message: 'Successfully fetched registered courses',
       data: registeredCourses.map((course) => ({

@@ -110,41 +110,6 @@ const registerCourses = async (req, res) => {
   }
 };
 
-const getRegisteredCourses = async (req, res) => {
-  // const data = db.courses.find({ level: { $not: { $type: 'number' } } });
-  console.log('data');
-  // try {
-  //   // Find the user by matricNo
-  //   const user = await User.findOne({ matricNo: req.headers.matricno }).exec();
-  //   if (!user) {
-  //     return res.status(404).json({ message: 'User not found.' });
-  //   }
-  //   // Retrieve the registered course IDs
-  //   const registeredCourseIds = user.courses || [];
-
-  //   // Find the detailed information of each registered course
-  //   const registeredCourses = await Courses.find({
-  //     id: { $in: registeredCourseIds },
-  //     level: { $toDouble: '$level' },
-  //   }).exec();
-
-  //   console.log(registeredCourses, 'users');
-  //   res.status(200).json({
-  //     message: 'Successfully fetched registered courses',
-  //     data: registeredCourses.map((course) => ({
-  //       id: course.id,
-  //       courseTitle: course.courseTitle,
-  //       courseCode: course.courseCode,
-  //       level: course.level,
-  //       unit: course.unit,
-  //     })),
-  //   });
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).json({ message: 'Internal server error' });
-  // }
-};
-
 module.exports = {
   getAllCourses,
   getCoursesByLevel,
