@@ -54,6 +54,10 @@ app.use(
   '/administration/get-registered-courses',
   require('./routes/administration/getRegisteredCourses')
 );
+app.use(
+  '/administration/delete-registered-course',
+  require('./routes/administration/deleteRegisteredCourse')
+);
 
 app.all('*', (req, res) => {
   res.status(404);
