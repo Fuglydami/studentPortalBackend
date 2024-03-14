@@ -659,3 +659,16 @@
 20240312	20:57:05	3cac1088-a770-45a6-8f01-9871ef458b41	GET	undefined	/administration/get-registered-courses
 20240312	21:00:11	3f31d7a8-a608-41a7-9ca9-422338f19eb4	GET	undefined	/administration/get-registered-courses
 20240312	21:01:27	708d7374-bbfc-48d9-9f2b-84c0fa24dc71	GET	undefined	/administration/courses/500L-B.Nsc
+20240314	18:52:01	698fe147-7a8c-44ad-9d56-d76418a1470d	POST	http://localhost:3500	/authentication/login
+20240314	18:52:14	4febfde8-83c5-4f95-868f-d454a752b096	POST	http://localhost:3500	/authentication/login
+20240314	18:52:35	4ab194cf-1395-4672-aca6-7291587cf33c	GET	undefined	/administration/courses
+20240314	18:52:49	3c9e4901-56f1-40c8-9441-7e22fcfc8951	POST	http://localhost:3500	/authentication/logout
+20240314	18:52:59	50e56dd0-d413-43cb-8dfe-09d14d7c69e5	GET	undefined	/administration/courses
+20240314	18:53:05	1208bb5c-250d-4c79-8d5a-ab1e2eef3f2e	GET	undefined	/administration/courses
+20240314	18:55:35	08abe95f-fff8-45b6-ae33-dbaaec67c1bf	POST	http://localhost:3500	/authentication/logout
+20240314	18:57:46	4b329b5b-2097-4802-a737-7c75499c2427	POST	undefined	/authentication/login
+20240314	18:58:02	4aae1197-9bfe-48e2-b5b3-c01940cf7dd0	GET	undefined	/authentication/logout
+20240314	18:58:41	0aaf7b5a-5b83-43db-977e-7f7bbc10c719	GET	undefined	/authentication/logout
+20240314	18:58:53	b9e518fb-5568-4150-a84e-3fc21adebb34	POST	undefined	/authentication/logout
+20240314	18:59:27	0e207eca-8ed7-44bd-b39e-7d6e8ab5fbaa	GET	undefined	/administration/courses
+20240314	19:01:49	d10de2b9-da09-4c82-a0f5-c9f5cadd875d	GET	undefined	/administration/courses

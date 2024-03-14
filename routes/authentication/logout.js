@@ -5,7 +5,7 @@ const logoutController = require('../../controllers/authentication/logoutControl
 /**
  * @openapi
  * /authentication/logout:
- *  get:
+ *  post:
  *     tags:
  *     - Auth
  *     responses:
@@ -21,6 +21,6 @@ const logoutController = require('../../controllers/authentication/logoutControl
  *        description: Bad request
  */
 
-router.get('/', logoutController.handleLogout);
+router.post('/', logoutController.handleLogout);
 
 module.exports = router;

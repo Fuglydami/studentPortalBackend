@@ -5,7 +5,7 @@ const refreshTokenController = require('../../controllers/authentication/refresh
 /**
  * @openapi
  * /authentication/refreshToken:
- *  get:
+ *  post:
  *     tags:
  *     - Auth
  *     summary: initiate refresh token
@@ -22,6 +22,6 @@ const refreshTokenController = require('../../controllers/authentication/refresh
  *        description: Bad request
  */
 
-router.get('/', refreshTokenController.handleRefreshToken);
+router.post('/', refreshTokenController.handleRefreshToken);
 
 module.exports = router;
