@@ -8,7 +8,8 @@ const deleteRegisteredCourse = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found.' });
     }
-    const { courseId } = req.body;
+    const courseId = req?.params.id;
+    console.log(courseId, 'courseId');
     if (!courseId) {
       return res.status(400).json({ message: 'Course ID is required.' });
     }

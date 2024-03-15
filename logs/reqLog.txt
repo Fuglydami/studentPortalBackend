@@ -672,3 +672,13 @@
 20240314	18:58:53	b9e518fb-5568-4150-a84e-3fc21adebb34	POST	undefined	/authentication/logout
 20240314	18:59:27	0e207eca-8ed7-44bd-b39e-7d6e8ab5fbaa	GET	undefined	/administration/courses
 20240314	19:01:49	d10de2b9-da09-4c82-a0f5-c9f5cadd875d	GET	undefined	/administration/courses
+20240314	19:06:50	e7f38a39-f168-48fd-8c90-9d4a7c3e4cb1	GET	undefined	/administration/courses
+20240314	20:48:57	aeab4de0-5ba3-4ab7-b569-b41b08cf4b24	GET	undefined	/administration/courses
+20240314	20:53:43	9a4e1158-aa2e-43bb-a99b-1c8d6d8d190a	GET	undefined	/administration/courses
+20240314	20:54:34	80fc661d-2bec-4e99-b891-267d4619b0dc	GET	undefined	/administration/courses
+20240314	20:55:00	cfbaf8d9-d151-45d5-acd1-55161a3d42ab	GET	undefined	/administration/courses
+20240315	22:19:13	402a0955-e3ea-4952-9836-e93e32ea1264	DELETE	undefined	/administration/delete-registered-course/23
+20240315	22:19:41	fa999a7c-0e2e-453a-9dc2-611f9dcd91d8	GET	undefined	/administration/get-registered-courses
+20240315	22:19:53	e9d75384-68d6-47f1-9c8b-9a74e939a18f	DELETE	undefined	/administration/delete-registered-course/26
+20240315	22:20:51	ff4c8007-fe88-4465-986c-91b2bbf264c6	DELETE	undefined	/administration/delete-registered-course/26
+20240315	22:21:41	9369f50d-cb8c-4653-95ce-76b4d102ed6c	DELETE	undefined	/administration/delete-registered-course/26

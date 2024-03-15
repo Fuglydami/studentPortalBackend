@@ -4,7 +4,7 @@ const coursesController = require('../../controllers/administration/deleteRegist
 
 /**
  * @openapi
- * '/administration/delete-registered-course':
+ * '/administration/delete-registered-course/{courseId}':
  *  delete:
  *     tags:
  *     - Administration
@@ -12,6 +12,9 @@ const coursesController = require('../../controllers/administration/deleteRegist
  *     parameters:
  *       - name: matricNo
  *         in: header
+ *       - name: courseId
+ *         in: path
+ *         required: true
  *     responses:
  *      200:
  *        description: Success
@@ -25,6 +28,6 @@ const coursesController = require('../../controllers/administration/deleteRegist
  *        description: Bad request
  */
 
-router.route('/').delete(coursesController.deleteRegisteredCourse);
+router.route('/:id').delete(coursesController.deleteRegisteredCourse);
 
 module.exports = router;
